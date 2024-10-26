@@ -159,7 +159,7 @@ const Page = () => {
 
         if (message !== "") {
             try {
-                await axios.post("http://127.0.0.1:8080", data);
+                await axios.post(process.env.NEXT_PUBLIC_BACKEND_BASE_URL, data);
             } catch (err) {
                 console.log(err);
             }
