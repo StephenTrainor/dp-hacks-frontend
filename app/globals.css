@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+
+.penn-red {
+    color: #990000;
+}
+
+.penn-blue {
+    color: #011F5B;
+}
+
+.penn-blue-border {
+    border-color: #011F5b;
+}
+
+.title {
+    @apply text-2xl mt-8 mb-4
+}
+
+.info-container {
+    max-width: 20rem;
+    margin: 1rem;
+}
+
+.h-90 {
+    height: 91vh
+}
+
+body {
+  font-family: "EB Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
