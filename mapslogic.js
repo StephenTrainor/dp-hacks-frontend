@@ -36,7 +36,7 @@ function initMap(userLocation) {
   // Draw geofences for each place ID
   placeIDs.forEach((placeID) => fetchPlaceDetails(placeID));
 
-  // user in ??
+  // user is in ??
   checkUserInZone(userLocation);
 }
 
