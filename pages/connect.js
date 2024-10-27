@@ -5,7 +5,7 @@ let googleLocation;
 let currentRoom;
 
 const placeIDs = [
-  // Lauder House
+  "ChIJ85r3PVDGxokRRxuANkh-02E", // Lauder House// Lauder House
       "ChIJjxgbSlrGxokRLTQW2HfGauQ", // Houston Hall
       "ChIJse5PvlrGxokREZWEctK7-S0", // Towne Building
       "ChIJG6dwdFrGxokR2w5L_I1yApI", // Van Pelt Library
@@ -157,7 +157,7 @@ const Connect = () => {
         <p className="penn-blue">Press 'connect' and allow location services to automatically join a room!</p>
       </div>
       <div>
-        <Button variant="outlined" className="w-24 rounded-full" onClick={requestUserLocation}>Get Connect</Button>
+        <Button variant="outlined" className="w-24 rounded-full" onClick={requestUserLocation}>Get con </Button>
       </div>
       <div className="flex flex-col sm:flex-row p-10">
         <div className="info-container">
