@@ -80,7 +80,10 @@ const Connect = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          const userLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+          const userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
           checkUserInZone(userLocation);
           console.log(userLocation);
         },
@@ -132,18 +135,19 @@ const Connect = () => {
         <p className="penn-blue">Press 'connect' and allow location services to automatically join a room!</p>
       </div>
       <div>
-        <Button variant="outlined" className="w-24 rounded-full" onClick={requestUserLocation}>Get Connect</Button>
+        <Button variant="outlined" className="w-24 rounded-full" onClick={requestUserLocation}>Get Connected</Button>
       </div>
       <div className="flex flex-col sm:flex-row p-10">
-        <div className="info-container">t service for Penn students. Simply press 'connect' to join a room based on your location. Room locations are grouped by major building.</p>
+        <div className="info-container">
           <h1 className="penn-red">What is QuakerChat?</h1>
-          <p className="penn-blue">QuakerChat is an anonymous location-based chat</p>
+          <p className="penn-blue">QuakerChat is an anonymous location-based chat service for Penn students. Simply press 'connect' to join a room based on your location. Room locations are grouped by major building.</p>
         </div>
         <div className="info-container">
           <h1 className="penn-red">Is my location shared or stored?</h1>
           <p className="penn-blue">No. Location services are only used to identify which major building a user is in. Location permissions can be changed at any time and your location is not shared with anyone else.</p>
         </div>
       </div>
+    </div>
   );
 }
 
