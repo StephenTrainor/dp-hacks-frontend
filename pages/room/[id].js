@@ -58,7 +58,7 @@ const Page = () => {
         }
     }, [messages]);
 
-    const sendMessage = async () => { // move this to another file?
+    const sendMessage = async () => {
         const d = new Date;
 
         const message = newMessage.trim();
