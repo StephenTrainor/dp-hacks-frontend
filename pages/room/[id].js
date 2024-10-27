@@ -14,11 +14,7 @@ const Page = () => {
     const messageContainerRef = useRef(null);
     const [autoScroll, setAutoScroll] = useState(true);
     const [newMessage, setNewMessage] = useState("");
-    const [messages, setMessages] = useState([{
-        message: 'Location: Huntsman',
-        hour: 11,
-        minute: 11}
-    ]);
+    const [messages, setMessages] = useState([]);
 
     useEffect(() => {
         if (router.query.id !== dummyRoomID) {
@@ -81,7 +77,7 @@ const Page = () => {
     };
 
     return (
-        <div className="mx-auto flex flex-col mx-auto w-80 sm:w-96 h-90">
+        <div className="mx-auto flex flex-col mx-auto w-80 sm:w-96 h-90 items-center">
             <div ref={messageContainerRef} onScroll={updateAutoScroll} className="overflow-y-auto">
                 {messages.map((message) => (
                     <QuakerMessage 
