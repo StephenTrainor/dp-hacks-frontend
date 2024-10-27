@@ -101,7 +101,9 @@ const Page = () => {
                 inputProps={{maxLength: MAX_CHAT_LENGTH}}
                 onChange={(e) => setNewMessage(e.target.value)} 
             />
-            <Button className="text-center mx-auto my-4 w-24 sm:w-32" variant="outlined" onClick={() => {sendMessage()}}>Send</Button>
+            <div>
+                <Button className="mx-auto my-4 w-24 sm:w-32" variant="outlined" onClick={() => {sendMessage()}}>Send</Button>
+            </div>
         </div>
     );
 };
