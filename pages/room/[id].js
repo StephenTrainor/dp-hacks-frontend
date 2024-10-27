@@ -77,7 +77,7 @@ const Page = () => {
     };
 
     return (
-        <div className="mx-auto flex flex-col mx-auto w-80 sm:w-96 h-90 items-center">
+        <div className="mx-auto flex flex-col mx-auto w-80 sm:w-96 h-90">
             <div ref={messageContainerRef} onScroll={updateAutoScroll} className="overflow-y-auto">
                 {messages.map((message) => (
                     <QuakerMessage 
@@ -101,7 +101,7 @@ const Page = () => {
                 inputProps={{maxLength: MAX_CHAT_LENGTH}}
                 onChange={(e) => setNewMessage(e.target.value)} 
             />
-            <Button className="mx-auto my-4 w-24 sm:w-32" variant="outlined" onClick={() => {sendMessage()}}>Send</Button>
+            <Button className="text-center mx-auto my-4 w-24 sm:w-32" variant="outlined" onClick={() => {sendMessage()}}>Send</Button>
         </div>
     );
 };

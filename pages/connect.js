@@ -16,9 +16,13 @@ const Connect = () => {
   const requestUserLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(() => {routeToRoom()});
+      navigator.permissions.query({name: 'geolocation'}).then(function(status) {
+        if (status.state === "granted") {
+          routeToRoom();
+        }
+      });
     } else{
       alert("Location not supported");
-
     }
   };
   return (
