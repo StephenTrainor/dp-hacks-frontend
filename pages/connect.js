@@ -6,10 +6,21 @@ const Connect = () => {
 
   const dummyRoomID = "huntsman-hall";
 
+  
+
+
   const routeToRoom = () => {
     router.push({pathname: `/room/${dummyRoomID}`, query: {id: dummyRoomID}});
   };
 
+  const requestUserLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(() => {routeToRoom()});
+    } else{
+      alert("Location not supported");
+
+    }
+  };
   return (
     <div className="flex flex-col items-center text-center">
       <div className="info-container">
@@ -17,7 +28,7 @@ const Connect = () => {
         <p className="penn-blue">Press 'connect' and allow location services to automatically join a room!</p>
       </div>
       <div>
-        <Button variant="outlined" className="w-24 rounded-full" onClick={() => routeToRoom()}>Connect</Button>
+        <Button variant="outlined" className="w-24 rounded-full" onClick={() => requestUserLocation()}>Connect</Button>
       </div>
       <div className="flex flex-col sm:flex-row p-10">
         <div className="info-container">

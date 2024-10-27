@@ -14,7 +14,11 @@ const Page = () => {
     const messageContainerRef = useRef(null);
     const [autoScroll, setAutoScroll] = useState(true);
     const [newMessage, setNewMessage] = useState("");
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState([{
+        message: 'Location: Huntsman',
+        hour: 11,
+        minute: 11}
+    ]);
 
     useEffect(() => {
         if (router.query.id !== dummyRoomID) {
@@ -107,3 +111,25 @@ const Page = () => {
 };
 
 export default Page;
+
+
+function requestUserLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const userLocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude,
+          };
+          document.getElementById("status").innerText = `Location: ${userLocation.lat}, ${userLocation.lng}`;
+          initMap(userLocation); // Initialize the map with the user's location
+        },
+        (error) => {
+          handleError(error);
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
+    }
+  }
+  
