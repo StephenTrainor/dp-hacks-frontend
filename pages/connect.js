@@ -3,9 +3,16 @@ import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
 
 const placeIDs = [
-  "ChIJ85r3PVDGxokRRxuANkh-02E",
-  "ChIJjxgbSlrGxokRLTQW2HfGauQ",
-  "ChIJse5PvlrGxokREZWEctK7-S0",
+  "ChIJ85r3PVDGxokRRxuANkh-02E", // Lauder House
+      "ChIJjxgbSlrGxokRLTQW2HfGauQ", // Houston Hall
+      "ChIJse5PvlrGxokREZWEctK7-S0", // Towne Building
+      "ChIJG6dwdFrGxokR2w5L_I1yApI", // Van Pelt Library
+      "ChIJoaF8ilrGxokRJKa1HWIoj4w", // Fisher Library
+      "ChIJzbTor0bHxokRgLa9dRGny_M", // Huntsman Hall
+      "ChIJa-NXW1jGxokRlgP4lD5tRUI", // Amazommons
+      "ChIJYZna5VnGxokR7g1MwvKOkGI", // Annenberg Center
+      "ChIJy1A2YVfGxokRd0yJ-ZD5doU", // Pottruck Fitness Center
+      "ChIJt437C1DGxokR0AzpBixAa80", // Hill College House
 ];
 
 const buffer = 0.0003; // Adjusted buffer for boundary customization
@@ -135,7 +142,7 @@ const Connect = () => {
         <p className="penn-blue">Press 'connect' and allow location services to automatically join a room!</p>
       </div>
       <div>
-        <Button variant="outlined" className="w-24 rounded-full" onClick={requestUserLocation}>Get Connected</Button>
+        <Button variant="outlined" className="w-24 rounded-full" onClick={requestUserLocation}>Get Connect</Button>
       </div>
       <div className="flex flex-col sm:flex-row p-10">
         <div className="info-container">
