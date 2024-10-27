@@ -17,12 +17,6 @@ const Page = () => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
-        router.push("/maintenance");
-    }, []);
-
-    return;
-
-    useEffect(() => {
         if (router.query.id !== dummyRoomID) {
             router.push("/connect");
         }
