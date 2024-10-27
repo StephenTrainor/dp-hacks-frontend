@@ -17,6 +17,7 @@ const placeIDs = [
 
 const buffer = 0.0003; // Adjusted buffer for boundary customization
 const scalerrrr = 0.3; // Scale down by 60%
+let googleLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
 const Connect = () => {
   const [geofences, setGeofences] = useState([]);
@@ -91,8 +92,9 @@ const Connect = () => {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          checkUserInZone(userLocation);
+          checkUserInZone(googleLocation);
           console.log(userLocation);
+          console.log(googleLocation);
         },
         (error) => handleError(error)
       );
