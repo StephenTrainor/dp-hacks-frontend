@@ -4,12 +4,10 @@ import Button from "@mui/material/Button";
 const Connect = () => {
   const router = useRouter();
 
-  const dummyRoomID = "lauder-college-house";
+  const dummyRoomID = "huntsman-hall";
 
   const routeToRoom = () => {
-    if (dummyRoomID) {
-      router.push({pathname: `/room/${dummyRoomID}`, query: {id: dummyRoomID}});
-    }
+    router.push({pathname: `/room/${dummyRoomID}`, query: {id: dummyRoomID}});
   };
 
   return (

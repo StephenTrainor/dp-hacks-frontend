@@ -9,103 +9,12 @@ import QuakerMessage from "@/lib/QuakerMessage";
 const Page = () => {
     const router = useRouter();
     const MAX_CHAT_LENGTH = 150;
-    const dummyRoomID = "lauder-college-house"; //TODO
+    const dummyRoomID = "huntsman-hall";
     const bottomRef = useRef(null);
     const messageContainerRef = useRef(null);
     const [autoScroll, setAutoScroll] = useState(true);
     const [newMessage, setNewMessage] = useState("");
-    const [messages, setMessages] = useState([
-        {
-            message: "hey",
-            hour: 14,
-            minute: 25
-        },
-        {
-            message: "Dude what did he just say",
-            hour: 14,
-            minute: 26
-        },
-        {
-            message: "omg bro",
-            hour: 14,
-            minute: 30
-        },
-        {
-            message: "hey",
-            hour: 14,
-            minute: 25
-        },
-        {
-            message: "Dude what did he just say",
-            hour: 14,
-            minute: 26
-        },
-        {
-            message: "omg bro",
-            hour: 14,
-            minute: 30
-        },
-        {
-            message: "hey",
-            hour: 14,
-            minute: 25
-        },
-        {
-            message: "Dude what did he just say",
-            hour: 14,
-            minute: 26
-        },
-        {
-            message: "omg bro",
-            hour: 14,
-            minute: 30
-        },
-        {
-            message: "hey",
-            hour: 14,
-            minute: 25
-        },
-        {
-            message: "Dude what did he just say",
-            hour: 14,
-            minute: 26
-        },
-        {
-            message: "omg bro",
-            hour: 14,
-            minute: 30
-        },
-        {
-            message: "hey",
-            hour: 14,
-            minute: 25
-        },
-        {
-            message: "Dude what did he just say",
-            hour: 14,
-            minute: 26
-        },
-        {
-            message: "omg bro",
-            hour: 14,
-            minute: 30
-        },
-        {
-            message: "hey",
-            hour: 14,
-            minute: 25
-        },
-        {
-            message: "Dude what did he just say",
-            hour: 14,
-            minute: 26
-        },
-        {
-            message: "omg bro",
-            hour: 14,
-            minute: 30
-        }
-    ]);
+    const [messages, setMessages] = useState([]);
 
     useEffect(() => {
         if (router.query.id !== dummyRoomID) {
