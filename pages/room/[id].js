@@ -16,7 +16,9 @@ const Page = () => {
     const [newMessage, setNewMessage] = useState("");
     const [messages, setMessages] = useState([]);
 
-    router.push("/maintenance");
+    useEffect(() => {
+        router.push("/maintenance");
+    }, []);
 
     return;
 
