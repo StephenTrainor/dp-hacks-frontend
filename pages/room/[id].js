@@ -18,7 +18,7 @@ const Page = () => {
 
     useEffect(() => {
         if (router.query.id !== dummyRoomID) {
-            router.push("/connect");
+            router.push("/maintenance");
         }
 
         const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY, { cluster: "us2"});
