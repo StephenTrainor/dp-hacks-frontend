@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import Button from "@mui/material/Button";
-let googleLocation;
-let currentRoom;
 
 const placeIDs = [
+<<<<<<< HEAD
   "ChIJ85r3PVDGxokRRxuANkh-02E", // Lauder House// Lauder House
+=======
+  "ChIJ85r3PVDGxokRRxuANkh-02E", // Lauder House
+>>>>>>> parent of aebd965 (Update connect.js)
       "ChIJjxgbSlrGxokRLTQW2HfGauQ", // Houston Hall
       "ChIJse5PvlrGxokREZWEctK7-S0", // Towne Building
       "ChIJG6dwdFrGxokR2w5L_I1yApI", // Van Pelt Library
@@ -19,36 +21,33 @@ const placeIDs = [
 
 const buffer = 0.0003; // Adjusted buffer for boundary customization
 const scalerrrr = 0.3; // Scale down by 60%
-const apiKey = "AIzaSyDxAY8lFhm9KkGmByXxqZr1ARA12IxMeqI";
+
 
 const Connect = () => {
   const [geofences, setGeofences] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
-    
+    const apiKey = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY;
     if (apiKey) {
-      loadGoogleMapsApi().then(() => {
+      loadGoogleMapsApi(apiKey).then(() => {
         console.log("Google Maps API loaded");
         initializeGeofences();
       });
     }
   }, []);
 
-  const loadGoogleMapsApi = () => {
+  const loadGoogleMapsApi = (apiKey) => {
     return new Promise((resolve) => {
       if (window.google) {
         resolve(window.google);
-        return;
-      } 
-
-      const script = document.createElement("script");
-      script.src = `https://maps.googleapis.com/maps/api/js?key=AIzaSyDxAY8lFhm9KkGmByXxqZr1ARA12IxMeqI&libraries=places,geometry`;
-      script.async = true;
-      script.onload = () => resolve(window.google);
-      console.log("Succesfully logged");
-      document.head.appendChild(script);
-    
+      } else {
+        const script = document.createElement("script");
+        script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places,geometry`;
+        script.async = true;
+        script.onload = () => resolve(window.google);
+        document.head.appendChild(script);
+      }
     });
   };
 
@@ -74,7 +73,6 @@ const Connect = () => {
           const polygon = new google.maps.Polygon({ paths: polygonPaths });
 
           setGeofences((prev) => [...prev, { zone: polygon, placeID }]);
-          console.log("Geofences set");
         } else {
           console.error("Cannot load place details");
         }
@@ -98,13 +96,10 @@ const Connect = () => {
             lat: position.coords.latitude,
             lng: position.coords.longitude,
           };
-          console.log(userLocation);
-
-          googleLocation = new google.maps.LatLng(userLocation.lat, userLocation.lng);
-          console.log(googleLocation);
+          let googleLocation = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
           checkUserInZone(googleLocation);
-          console.log("Google Location");
-
+          console.log(userLocation);
+          console.log(googleLocation);
         },
         (error) => handleError(error)
       );
@@ -117,12 +112,9 @@ const Connect = () => {
     let insideAnyZone = false;
 
     geofences.forEach((geofence) => {
-      
       if (google.maps.geometry.poly.containsLocation(userLocation, geofence.zone)) {
         insideAnyZone = true;
-        currentRoom = geofence.placeID;
         routeToRoom(geofence.placeID);
-        console.log(`You are in ${currentRoom}`);
       }
     });
 
