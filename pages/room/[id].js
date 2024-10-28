@@ -17,8 +17,14 @@ const Page = () => {
     const [messages, setMessages] = useState([]);
 
     useEffect(() => {
+        router.push("/maintenance");
+    }, []);
+
+    return;
+
+    useEffect(() => {
         if (router.query.id !== dummyRoomID) {
-            router.push("/maintenance");
+            router.push("/connect");
         }
 
         const pusher = new Pusher(process.env.NEXT_PUBLIC_PUSHER_KEY, { cluster: "us2"});
